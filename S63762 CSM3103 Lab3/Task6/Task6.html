@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animation Example</title>
+  <style>
+    #container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border: 2px solid black;
+    }
+    
+    .square {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: blue;
+    }
+    
+    #square1 {
+      top: 0;
+      left: 0;
+    }
+    
+    #square2 {
+      bottom: 0;
+      right: 0;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="square1" class="square"></div>
+    <div id="square2" class="square"></div>
+  </div>
+  
+  <button id="startBtn">Start</button>
+  <button id="stopBtn">Stop</button>
+
+  <script>
+    var square1 = document.getElementById("square1");
+    var square2 = document.getElementById("square2");
+    var container = document.getElementById("container");
+    var animationInterval;
+
+    function moveSquares() {
+      var containerWidth = container.clientWidth;
+      var containerHeight = container.clientHeight;
+      var squareSize = square1.clientWidth;
+      
+      var maxX = containerWidth - squareSize;
+      var maxY = containerHeight - squareSize;
+
+      var x1 = Math.floor(Math.random() * Math.floor(maxX));
+      var y1 = Math.floor(Math.random() * Math.floor(maxY));
+      
+      var x2 = Math.floor(Math.random() * Math.floor(maxX));
+      var y2 = Math.floor(Math.random() * Math.floor(maxY));
+
+      square1.style.left = x1 + "px";
+      square1.style.top = y1 + "px";
+
+      square2.style.right = x2 + "px";
+      square2.style.bottom = y2 + "px";
+    }
+
+    function startAnimation() {
+      animationInterval = setInterval(moveSquares, 1000);
+    }
+
+    function stopAnimation() {
+      clearInterval(animationInterval);
+    }
+
+    var startButton = document.getElementById("startBtn");
+    startButton.addEventListener("click", startAnimation);
+
+    var stopButton = document.getElementById("stopBtn");
+    stopButton.addEventListener("click", stopAnimation);
+  </script>
+</body>
+</html>

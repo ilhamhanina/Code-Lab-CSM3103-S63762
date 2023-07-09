@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Manager Task 4.2</title>
+  <style>
+    .effect {
+      border: 2px solid gray;
+      padding: 5px;
+      transition: border-color 0.3s ease-in-out;
+    }
+    
+    .effect:focus {
+      border-color: blue;
+      box-shadow: 0 0 5px blue;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="myInput" class="effect" placeholder="Enter text" />
+
+  <script>
+    var input = document.getElementById("myInput");
+
+    // Onchange
+    input.onchange = function() {
+      input.style.backgroundColor = "yellow";
+    };
+
+    // Onfocus
+    input.onfocus = function() {
+      input.style.fontWeight = "bold";
+    };
+
+    // Onblur
+    input.onblur = function() {
+      input.style.fontWeight = "normal";
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Manager Task 4.1</title>
+  <style>
+    #myParagraph {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <p id="myParagraph">Click me!</p>
+
+  <script>
+    var paragraph = document.getElementById("myParagraph");
+
+    // Onclick - yellow background
+    paragraph.onclick = function() {
+      paragraph.style.backgroundColor = "yellow";
+    };
+
+    // Ondblclick - blue background
+    paragraph.ondblclick = function() {
+      paragraph.style.backgroundColor = "blue";
+    };
+
+    // Onmouseover - red background
+    paragraph.onmouseover = function() {
+      paragraph.style.backgroundColor = "red";
+    };
+
+    // Onmouseout - green background
+    paragraph.onmouseout = function() {
+      paragraph.style.backgroundColor = "green";
+    };
+  </script>
+</body>
+</html>

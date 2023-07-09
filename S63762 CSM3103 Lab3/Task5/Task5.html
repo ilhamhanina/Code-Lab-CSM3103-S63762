@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table Manipulation Example</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    
+    tr:hover {
+      background-color: lightgray;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <table id="myTable">
+    <!-- Existing table rows -->
+    <tr>
+      <td>1</td>
+      <td>Ahmad Faisal</td>
+      <td>ahmadfaisal@gmail.com</td>
+      <td>0199088888</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Ismail Sabri</td>
+      <td>isabri@mail.com</td>
+      <td>0199076760</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Fateh Yakin</td>
+      <td>ffateh@hotmail.com</td>
+      <td>0176067762</td>
+    </tr>
+  </table>
+
+  <script>
+    // Add a new record to the table
+    var table = document.getElementById("myTable");
+    var newRow = table.insertRow();
+
+    var cell1 = newRow.insertCell();
+    cell1.textContent = "4";
+
+    var cell2 = newRow.insertCell();
+    cell2.textContent = "Mukhriz Jamil Asoka";
+
+    var cell3 = newRow.insertCell();
+    cell3.textContent = "mukriz@corp.jo";
+
+    var cell4 = newRow.insertCell();
+    cell4.textContent = "651181187223";
+
+    // Add the table header
+    var headerRow = table.insertRow(0);
+
+    var header1 = headerRow.insertCell();
+    header1.textContent = "#";
+
+    var header2 = headerRow.insertCell();
+    header2.textContent = "Name";
+
+    var header3 = headerRow.insertCell();
+    header3.textContent = "Email";
+
+    var header4 = headerRow.insertCell();
+    header4.textContent = "Phone #";
+
+    // Delete row when clicked
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++) {
+      rows[i].onclick = function() {
+        this.parentNode.removeChild(this);
+      };
+    }
+  </script>
+</body>
+</html>
